@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('.number, .operator')
+const buttons = document.querySelectorAll('.number, .operator, .decimal-operator')
 const display = document.querySelector('.calculator-display')
 const equals = document.querySelector('.equals')
 const clear = document.querySelector('.clear')
