@@ -1,0 +1,31 @@
+.container {
+    background: lightGrey;
+    width: max-content;
+    margin: auto;
+}
+
+.calculator-display {
+    width: 100%;
+    background-color: darkGrey;
+    height: 60px;
+    font-size: 45px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons {
+    max-width: 275px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    flex-grow: 1;
+    flex-basis: 25%;
+    padding: 10px;
+    font-size: 20px;
+}
+
+button:hover{
+    background-color: lightgrey;
+}
