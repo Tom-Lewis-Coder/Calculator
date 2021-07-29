@@ -10,9 +10,8 @@ buttons.forEach(button => {
         buttonValue = button.getAttribute('value')
         displayData += buttonValue
         display.innerHTML = displayData
-        console.log(displayData)
     })
-});
+})
 
 equals.addEventListener('click', () => {
     display.innerHTML = eval(displayData) 
