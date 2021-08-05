@@ -8,13 +8,20 @@ displayData = ''
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
-        displayData += buttonValue
+        buttonValue == '.' && 
+            displayData.includes('.') && 
+                !displayData.includes('+') && 
+                    !displayData.includes('-') && 
+                        !displayData.includes('*') && 
+                            !displayData.includes('/') ? 
+                                buttonValue = '' : displayData += buttonValue
         display.innerHTML = displayData
     })
 })
 
 equals.addEventListener('click', () => {
-    display.innerHTML = eval(displayData) 
+    displayData = eval(displayData) 
+    display.innerHTML = displayData
 })
 
 clear.addEventListener('click', () => {
