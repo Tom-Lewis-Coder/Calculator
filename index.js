@@ -8,14 +8,10 @@ displayData = ''
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
-        buttonValue == '.' && 
-            displayData.includes('.') && 
-                !displayData.includes('+') && 
-                    !displayData.includes('-') && 
-                        !displayData.includes('*') && 
-                            !displayData.includes('/') ? 
-                                buttonValue = '' : displayData += buttonValue
-        display.innerHTML = displayData
+            buttonValue == '.' && displayData.includes('.') && 
+                !displayData.includes('+') && !displayData.includes('-') && !displayData.includes('*') && !displayData.includes('/') ? 
+                    buttonValue = '' : displayData += buttonValue 
+    display.innerHTML = displayData
     })
 })
 
