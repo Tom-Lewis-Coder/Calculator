@@ -1,18 +1,38 @@
-const buttons = document.querySelectorAll('.number, .operator, .decimal-operator')
+const numButton = document.querySelectorAll('.number')
+const opButton = document.querySelectorAll('.operator')
+const decButton = document.querySelector('.decimal-operator')
 const display = document.querySelector('.calculator-display')
 const equals = document.querySelector('.equals')
 const clear = document.querySelector('.clear')
 
 displayData = ''
+lastKeyPressOperator = true
+decimalUsed = false
 
-buttons.forEach(button => {
+numButton.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
-            buttonValue == '.' && displayData.includes('.') && 
-                !displayData.includes('+') && !displayData.includes('-') && !displayData.includes('*') && !displayData.includes('/') ? 
-                    buttonValue = '' : displayData += buttonValue 
+        displayData += buttonValue 
     display.innerHTML = displayData
+    lastKeyPressOperator = false
     })
+})
+
+opButton.forEach(button => {
+    button.addEventListener('click', () => {
+        buttonValue = button.getAttribute('value')
+        lastKeyPressOperator === true ? buttonValue = '' : displayData += buttonValue 
+    display.innerHTML = displayData
+    lastKeyPressOperator = true
+    decimalUsed = false
+    })
+})
+
+decButton.addEventListener('click', () => {
+    buttonValue = decButton.getAttribute('value')
+    decimalUsed === true ? buttonValue = '' : displayData += buttonValue 
+    display.innerHTML = displayData
+    decimalUsed = true
 })
 
 equals.addEventListener('click', () => {
@@ -23,4 +43,5 @@ equals.addEventListener('click', () => {
 clear.addEventListener('click', () => {
     displayData = ''
     display.innerHTML = displayData
+    decimalUsed = false
 })
