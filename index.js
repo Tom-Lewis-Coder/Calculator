@@ -6,7 +6,7 @@ const equals = document.querySelector('.equals')
 const clear = document.querySelector('.clear')
 
 displayData = ''
-lastKeyPressOperator = true
+lastKeyPressOperator = false
 decimalUsed = false
 
 numButton.forEach(button => {
@@ -36,8 +36,16 @@ decButton.addEventListener('click', () => {
 })
 
 equals.addEventListener('click', () => {
-    displayData = eval(displayData) 
-    display.innerHTML = displayData
+    try{
+        displayData = eval(displayData) 
+        display.innerHTML = displayData
+    }
+    catch{
+        displayData = ''
+        display.innerHTML = displayData
+        decimalUsed = false
+        alert('Please input correct formula')
+    }
 })
 
 clear.addEventListener('click', () => {
