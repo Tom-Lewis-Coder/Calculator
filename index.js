@@ -7,28 +7,28 @@ const clear = document.querySelector('.clear')
 const back = document.querySelector('.backUp')
 
 displayData = ''
-lastKeyPressOperator = false
+lastClickOperator = false
 decimalUsed = false
-lastKeyPressEquals = false
+lastClickEquals = false
 
 numButton.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
         displayData += buttonValue 
     display.innerHTML = displayData
-    lastKeyPressOperator = false
-    lastKeyPressEquals = false
+    lastClickOperator = false
+    lastClickEquals = false
     })
 })
 
 opButton.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
-        lastKeyPressOperator === true ? buttonValue = '' : displayData += buttonValue 
+        lastClickOperator === true ? buttonValue = '' : displayData += buttonValue 
     display.innerHTML = displayData
-    lastKeyPressOperator = true
+    lastClickOperator = true
     decimalUsed = false
-    lastKeyPressEquals = false
+    lastClickEquals = false
     })
 })
 
@@ -37,20 +37,20 @@ decButton.addEventListener('click', () => {
     decimalUsed === true ? buttonValue = '' : displayData += buttonValue 
     display.innerHTML = displayData
     decimalUsed = true
-    lastKeyPressEquals = false
+    lastClickEquals = false
 })
 
 equals.addEventListener('click', () => {
     try{
         displayData = eval(displayData) 
         displayData === undefined ? displayData= '' : display.innerHTML = displayData
-        lastKeyPressEquals = true
+        lastClickEquals = true
     }
     catch{
         displayData = ''
         display.innerHTML = displayData
         decimalUsed = false
-        lastKeyPressEquals = false
+        lastClickEquals = false
         alert('Please input correct formula')
     }
 })
@@ -59,13 +59,13 @@ clear.addEventListener('click', () => {
     displayData = ''
     display.innerHTML = displayData
     decimalUsed = false
-    lastKeyPressEquals = false
+    lastClickEquals = false
 })
 
 back.addEventListener('click', () => {
-    lastKeyPressEquals === true ? displayData = '' :
+    lastClickEquals === true ? displayData = '' :
     displayData = displayData.substr(0, displayData.length - 1)
     display.innerHTML = displayData
-    lastKeyPressOperator = false
+    lastClickOperator = false
     decimalUsed = false
 })
