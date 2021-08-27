@@ -26,7 +26,7 @@ opButton.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
         lastClickOperator === true ? 
-        displayData = displayData.substr(0, displayData.length - 1) += buttonValue : displayData += buttonValue // replaces operator in event of double
+        displayData = displayData.substr(0, displayData.length - 1) + buttonValue : displayData += buttonValue // replaces operator in event of double
     display.innerHTML = displayData
     lastClickOperator = true
     decimalUsed = false
