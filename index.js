@@ -25,7 +25,8 @@ numButton.forEach(button => {
 opButton.forEach(button => {
     button.addEventListener('click', () => {
         buttonValue = button.getAttribute('value')
-        lastClickOperator === true ? buttonValue = '' : displayData += buttonValue 
+        lastClickOperator === true ? 
+        displayData = displayData.substr(0, displayData.length - 1) += buttonValue : displayData += buttonValue // replaces operator in event of double
     display.innerHTML = displayData
     lastClickOperator = true
     decimalUsed = false
@@ -43,7 +44,7 @@ decButton.addEventListener('click', () => {
 
 equals.addEventListener('click', () => {
     try{
-        displayData = eval(displayData) 
+        displayData = eval(displayData)
         displayData === undefined ? displayData= '' : display.innerHTML = displayData
         lastClickEquals = true
     }
@@ -52,13 +53,13 @@ equals.addEventListener('click', () => {
         display.innerHTML = displayData
         decimalUsed = false
         lastClickEquals = false
-        alert('Please input correct formula')
+        alert('Please input a correct formula')
     }
 })
 
 clear.addEventListener('click', () => {
     displayData = ''
-    display.innerHTML = displayData
+    display.innerHTML = displayData 
     decimalUsed = false
     lastClickEquals = false
 })
@@ -69,9 +70,9 @@ back.addEventListener('click', () => {
     lastClickEquals === true ? displayData = '' : 
     displayData = displayData.substr(0, displayData.length - 1) // removes last value in display string
     display.innerHTML = displayData 
-    
+
     operators.includes(displayData.substr(displayData.length - 1, displayData.length)) ? 
-    lastClickOperator = true : lastClickOperator = false // checks if the new last value is operator
+    lastClickOperator = true : lastClickOperator = false // checks if the new last value is operator and updates lastClickOperator boolean accordingly
     
-    lastClickVal === '.' ? decimalUsed = false : true // checks if cleared value was a decimal 
+    lastClickVal === '.' ? decimalUsed = false : true // checks if cleared value was a decimal and updates decimalUsed boolean accordingly
 })
