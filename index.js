@@ -64,10 +64,11 @@ clear.addEventListener('click', () => {
 })
 
 back.addEventListener('click', () => {
-    lastClickEquals === true ? displayData = '' :
-    displayData = displayData.substr(0, displayData.length - 1)
-    display.innerHTML = displayData
+    lastClickVal = displayData.substr(displayData.length - 1, displayData.length) // this variable holds value of the last clicked button before it is removed
+    lastClickEquals === true ? displayData = '' : 
+    displayData = displayData.substr(0, displayData.length - 1) // removes last value in display string
+    display.innerHTML = displayData 
     operators.includes(displayData.substr(displayData.length - 1, displayData.length)) ? 
-    lastClickOperator = true : lastClickOperator = false
-    decimalUsed = false
+    lastClickOperator = true : lastClickOperator = false // checks if the new last value is operator
+    lastClickVal === '.' ? decimalUsed = false : true // checks if cleared value was a decimal 
 })
