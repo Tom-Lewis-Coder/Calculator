@@ -6,6 +6,7 @@ const equals = document.querySelector('.equals')
 const clear = document.querySelector('.clear')
 const back = document.querySelector('.backUp')
 
+operators = ['+', '-', '*', '/']
 displayData = ''
 lastClickOperator = false
 decimalUsed = false
@@ -66,6 +67,7 @@ back.addEventListener('click', () => {
     lastClickEquals === true ? displayData = '' :
     displayData = displayData.substr(0, displayData.length - 1)
     display.innerHTML = displayData
-    lastClickOperator = false
+    operators.includes(displayData.substr(displayData.length - 1, displayData.length)) ? 
+    lastClickOperator = true : lastClickOperator = false
     decimalUsed = false
 })
