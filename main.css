@@ -1,17 +1,20 @@
 * {
     box-sizing: border-box;
     background-color: rgb(222, 222, 253);
+    display: flex;
+    justify-content: center;
 }
 
 .container {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    min-width: 300px;
+    margin-top: 25px;
     background: white;
     border: 2px solid darkgray;
     border-radius: 5px;
     box-shadow: 0 3px 10px 0 black;
-    max-width: 300px;
-    min-width: 300px;
 }
 
 .calculator-display {
@@ -29,7 +32,6 @@
 .flex-grid-row1, .flex-grid-row2, .flex-grid-row3, .flex-grid-row4, .flex-grid-row5 {
     background-color: white;
     display: flex;
-    flex: 1;
 }
 
 .number, .decimal-operator, .clear, .backUp {
@@ -62,6 +64,11 @@
 
 .equals:hover {
     background-color: darkblue;
+}
+
+button {
+    border: 1px solid darkgray;
+    box-shadow: 0 1px 2px 0 black;
 }
 
 button:hover{
